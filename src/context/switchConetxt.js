@@ -2,13 +2,17 @@ import { Children, createContext, useState } from "react";
 
 const SwitchContext = createContext({
   digree: true,
-  setDigree: () => {},
+  setScale: () => {},
 });
 
 const SwitchProvider = ({ children }) => {
-  const [digree, setDigree] = useState < Boolean > true;
+  //this setScale function is not nessessary
+  const setScale =()=>{
+    setDigree(!digree);
+  }
+  const [digree, setDigree] = useState(true);
   return (
-    <SwitchContext.Provider value={{ digree, setDigree }}>
+    <SwitchContext.Provider value={{ digree, setScale }}>
       {children}
     </SwitchContext.Provider>
   );
