@@ -16,7 +16,7 @@ const Card = ({ data, location }) => {
 
   return (
     <div className="border rounded-lg px-4 mt-8 mx-auto overflow-x-hidden flex max-w-[1200px] ">
-      <div className=" p-2 border rounded-xl w-1/4">
+      <div className=" p-16 border rounded-xl">
         <div className="flex flex-col">
           <span className="text-xl my-3">{data.location.name}</span>
           <span>{data.location.region}</span>
