@@ -4,7 +4,7 @@ import toast from "react-hot-toast";
 import Card from "./Card.tsx";
 
 const Weather = () => {
-  const [location, setLocation] = useState<any>();
+  const [location, setLocation] = useState<any>("");
   const [data, setData] = useState(null);
 
   const handleClick = async () => {

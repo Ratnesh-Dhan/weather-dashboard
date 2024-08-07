@@ -15,13 +15,13 @@ const Forecast = ({ location }) => {
         setData(response.data);
       })
       .catch((error) => {
-        console.log(error);
+        console.log(error.message);
       });
   }, [location]);
 
   useEffect(() => {
     if (data !== undefined) {
-      console.log(data?.forecast?.forecastday[0].hour);
+      //console.log(data?.forecast?.forecastday[0].hour);
       setAry(data?.forecast?.forecastday[0].hour);
       //const { forecast } = data;
       //console.log(forecastday[0]);
@@ -30,7 +30,7 @@ const Forecast = ({ location }) => {
 
   return (
     // w-[850px]
-    <div className="flex overflow-x-auto  border rounded-xl">
+    <div className="flex overflow-x-auto  border rounded-xl  w-[810px]">
       {ary.map((h, index) => (
         <ForecastCards hour={h} key={index} />
       ))}
