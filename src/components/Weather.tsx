@@ -4,7 +4,7 @@ import toast from "react-hot-toast";
 import Card from "./Card.tsx";
 
 const Weather = () => {
-  const [location, setLocation] = useState<any>();
+  const [location, setLocation] = useState<any>("");
   const [data, setData] = useState(null);
 
   const handleClick = async () => {
@@ -26,7 +26,7 @@ const Weather = () => {
 
   return (
     <>
-      <div className="flex justify-center border max-w-screen">
+      <div className="flex justify-center max-w-screen">
         <input
           className="border border-slate-400 px-3 m-4 rounded-lg w-[40%]"
           placeholder="enter zip code or city name"

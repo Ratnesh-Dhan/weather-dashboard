@@ -10,7 +10,7 @@ function App() {
       <div className="bg-slate-600 min-h-screen">
         <Weather />
       </div>
-  </>
+    </>
   );
 }
 
