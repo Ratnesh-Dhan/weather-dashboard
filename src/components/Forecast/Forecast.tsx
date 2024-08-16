@@ -1,3 +1,4 @@
+import axiosConfig from "../../axiosConfig";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import ForecastCards from "./ForecastCards.tsx";
@@ -7,9 +8,9 @@ const Forecast = ({ location }) => {
   const [ary, setAry] = useState([]);
 
   useEffect(() => {
-    axios
+    axiosConfig
       .get(
-        `${process.env.REACT_APP_BASE_URL}forecast.json?key=${process.env.REACT_APP_WEATHER_API}&q=${location}&aqi=no`
+        `forecast.json?key=${process.env.REACT_APP_API_KEY}&days=1&&q=${location}&aqi=no`
       )
       .then((response) => {
         setData(response.data);

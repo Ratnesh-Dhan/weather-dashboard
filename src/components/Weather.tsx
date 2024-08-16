@@ -2,14 +2,15 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import Card from "./Card.tsx";
+import axiosConfig from "../axiosConfig.js";
 
 const Weather = () => {
   const [location, setLocation] = useState<any>("");
   const [data, setData] = useState(null);
 
   const handleClick = async () => {
-    axios
-      .get(`${process.env.REACT_APP_URL}&q=${location}&aqi=no`)
+    axiosConfig
+      .get(`current.json?key=${process.env.REACT_APP_API_KEY}&q=${location}&aqi=no`)
       .then((response) => {
         setData(response.data);
       })

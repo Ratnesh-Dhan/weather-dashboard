@@ -9,9 +9,9 @@ const Clock = ({ zone }) => {
   const setTime = () => {
     const nowDate = moment.tz(zone);
     //console.log({ thereDate: nowDate });
-    console.log({ hour: nowDate.hour() });
-    console.log({ minute: nowDate.minute() });
-    console.log({ second: nowDate.second() });
+    // console.log({ hour: nowDate.hour() });
+    // console.log({ minute: nowDate.minute() });
+    // console.log({ second: nowDate.second() });
 
     setSecond(nowDate.second());
     setMinute(nowDate.minute());

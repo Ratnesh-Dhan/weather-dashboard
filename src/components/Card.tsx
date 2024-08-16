@@ -45,15 +45,15 @@ const Card = ({ data, location }) => {
           <div className="flex flex-col">
             <span>{date}</span>
             <span>{time}</span>
-            <TimeBox
+            {/* <TimeBox
               lat={data.location.lat}
               lon={data.location.lon}
               zone={data.location.tz_id}
-            />
+            /> */}
           </div>
         </div>
       </div>
-      <div className="border border-red-700 flex-1 w-full">
+      <div className=" flex-1 w-full">
         <div className="flex">
           <div className="flex flex-col m-4">
             <div className="flex">
@@ -75,7 +75,7 @@ const Card = ({ data, location }) => {
                 <span>{data.current.feelslike_f} °F</span>
               )}
             </div>
-            <p className="my-10 text-4xl text-white font-poppins">
+            <p className="my-10 text-4xl text-white font-poppins w-[400px]">
               {data.current.condition.text}
             </p>
           </div>
