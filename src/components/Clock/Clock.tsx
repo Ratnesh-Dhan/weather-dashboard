@@ -32,24 +32,24 @@ const Clock = ({ zone }) => {
   return (
     <div
       id="clock"
-      className="m-20 rounded-[50%] w-[200px] h-[200px] bg-white shadow-[0_0_0_10px_rgb(1,16,1)] relative"
+      className="m-20 rounded-[50%] w-[200px] h-[200px] shadow-[0_0_0_2px_rgb(255,255,255)] relative" style={{backdropFilter: 'blur(2.3px)', backgroundColor: "rgba(100, 100, 100, 0.2)", WebkitBackdropFilter: "blur(2.3px)"}}
     >
       <div
-        className="absolute translate-x-[95px] translate-y-[30px] h-[70px] w-[10px] bg-[#290d4f]"
+        className="absolute translate-x-[95px] translate-y-[30px] h-[70px] w-[6px] bg-[#290d4f]"
         style={{
           transform: `translate(95px, 30px) rotate(${hour * 30}deg)`,
           transformOrigin: "bottom",
         }}
       ></div>
       <div
-        className="absolute translate-x-[95px] translate-y-[30px] h-[90px] w-[6px] bg-[#ce2175]"
+        className="absolute translate-x-[95px] translate-y-[30px] h-[90px] w-[4px] bg-[#ce2175]"
         style={{
           transform: `translate(95px, 10px) rotate(${minute * 6}deg)`,
           transformOrigin: "bottom",
         }}
       ></div>
       <div
-        className="bg-[#266aaa] absolute translate-x-[95px] translate-y-[100px] h-[90px] w-[6px]"
+        className="bg-[#266aaa] absolute translate-x-[95px] translate-y-[100px] h-[90px] w-[3px]"
         style={{
           transform: `translate(95px, 100px) rotate(${180 + second * 6}deg)`,
           transformOrigin: "top",

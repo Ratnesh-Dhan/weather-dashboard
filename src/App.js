@@ -7,9 +7,9 @@ function App() {
   return (
     <>
       <Toaster />
-      <div className="bg-slate-600 min-h-screen">
+      
         <Weather />
-      </div>
+      
     </>
   );
 }
