@@ -1,4 +1,3 @@
-import axios from "axios";
 import React, { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import Card from "./Card.tsx";
@@ -19,25 +18,30 @@ const Weather = () => {
           toast.error("Enter location correctly");
         }
       });
+      
   };
-
-  useEffect(() => {
-    //console.log(data);
-  }, [data]);
+  const handleKeyEnter = (event) => {
+    if (event.key === "Enter") {
+      handleClick();
+      console.log("enter");
+    }
+  }
 
   return (
     <>
+    <div className="bg-[url('/public/bg.jpg')] bg-cover bg-center pb-1" >
       <div className="flex justify-center max-w-screen">
         <input
-          className="border border-slate-400 px-3 m-4 rounded-lg w-[40%]"
+          className="border border-slate-400 px-3 my-4 rounded-tl-lg py-3 rounded-bl-lg w-[40%]"
           placeholder="enter zip code or city name"
           type="text"
           value={location}
           onChange={(e) => setLocation(e.target.value)}
         />
         <button
-          className="border rounded-[50%] border-slate-400 py-3 px-4 m-3 text-lg bg-slate-900 text-yellow-100 font-semibold"
+          className="border rounded-tr-lg rounded-br-lg border-slate-400 px-4 my-4 text-lg bg-[#86AB89] text-yellow-100 font-semibold"
           onClick={handleClick}
+          onKeyDown={handleKeyEnter}
         >
           Go
         </button>
@@ -51,6 +55,7 @@ const Weather = () => {
           </h2>
         )}
       </div>
+    </div>
     </>
   );
 };

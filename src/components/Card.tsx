@@ -1,20 +1,17 @@
 import React, { useContext, useEffect, useState } from "react";
 import Forecast from "./Forecast/Forecast.tsx";
 import { SwitchContext } from "../context/switchConetxt.js";
-import TimeBox from "./TimeBox.tsx";
 import Clock from "./Clock/Clock.tsx";
+import { HiOutlineSwitchHorizontal } from "react-icons/hi";
 
 const Card = ({ data, location }) => {
   const [image, setImage] = useState<string>();
   const [date, setDate] = useState<string>();
   const [time, setTime] = useState<string>();
-  //const [scale, setScale] = useState<boolean>(true);
 
   const { digree, setScale } = useContext(SwitchContext);
 
   useEffect(() => {
-    //console.log(data.current.condition.text);
-    //console.log(data.current);
     dateTimeFunc();
     setImage(`https:${data.current.condition.icon}`);
   }, [data]);
@@ -32,40 +29,34 @@ const Card = ({ data, location }) => {
   };
 
   return (
-    <div className="border rounded-lg px-4 mt-8 mx-auto overflow-x-hidden flex max-w-[1200px] ">
-      <div className=" p-16 border rounded-xl">
-        <div className="flex flex-col">
-          <span className="text-3xl my-3">{data.location.name}</span>
-          <span>{data.location.region}</span>
-          <span className="font-poppins mb-5">{data.location.country}</span>
-          <div>
-            <p>Lat: {data.location.lat}</p>
-            <p>Lon: {data.location.lon}</p>
+    <div className="border rounded-lg px-4 my-8 mx-auto overflow-x-hidden flex max-w-[1200px] bg-[url('/public/bg.jpg')] bg-cover bg-center backdrop-blur-lg">
+      <div id="card-left" className="bg-opacity-30 p-16 border rounded-xl" style={{backdropFilter: 'blur(2.3px)', backgroundColor: "rgba(255, 255, 255, 0.3)", WebkitBackdropFilter: "blur(2.3px)"}} >
+        <div className="flex flex-col font-bold">
+          <span className="text-4xl my-3 text-[#86AB89]">{data.location.name}</span>
+          <span className="text-2xl my-3">{data.location.region}</span>
+          <span className="text-xl">{data.location.country}</span>
+          <div className="mt-10 font-medium">
+            <p className="text-xl">Lat: {data.location.lat}</p>
+            <p className="text-xl">Lon: {data.location.lon}</p>
           </div>
-          <div className="flex flex-col">
+          <div className="flex flex-col mt-5 text-xl font-medium">
             <span>{date}</span>
             <span>{time}</span>
-            {/* <TimeBox
-              lat={data.location.lat}
-              lon={data.location.lon}
-              zone={data.location.tz_id}
-            /> */}
           </div>
         </div>
       </div>
       <div className=" flex-1 w-full">
         <div className="flex">
           <div className="flex flex-col m-4">
-            <div className="flex">
+            <div className="flex text-xl">
               {digree ? (
                 <span className="py-2 text-3xl">{data.current.temp_c} °C</span>
               ) : (
                 <span className="py-2 text-3xl">{data.current.temp_f} °F</span>
               )}
-              <button className="mx-3 border" onClick={() => setScale()}>
-                switch
-              </button>
-              <img src={image} alt="weather icon" width="50" height="60" />
+              <HiOutlineSwitchHorizontal className="mx-3 rounded hover:shadow-[1px_1px_0_3px_rgba(16,12,8)]" onClick={() => setScale()} />
+
+              <img src={image} alt="weather icon" width="50" height="50" />
             </div>
             <div className="flex my-3">
               <p className="mr-2">feels like</p>
