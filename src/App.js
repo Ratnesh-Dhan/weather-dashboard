@@ -7,8 +7,7 @@ function App() {
   return (
     <>
       <Toaster />
-      
-        <Weather />
+          <Weather />
       
     </>
   );

@@ -4,11 +4,13 @@ import { SwitchContext } from "../context/switchConetxt.js";
 import Clock from "./Clock/Clock.tsx";
 import { HiOutlineSwitchHorizontal } from "react-icons/hi";
 import { motion } from "framer-motion";
+import { TimeContext } from "../context/TimeContext.js";
 
 const Card = ({ data, location }) => {
   const [image, setImage] = useState<string>();
   const [date, setDate] = useState<string>();
   const [time, setTime] = useState<string>();
+  const {curTime}   = useContext(TimeContext);
 
   const { digree, setScale } = useContext(SwitchContext);
 
@@ -31,8 +33,8 @@ const Card = ({ data, location }) => {
   };
 
   return (
-    <div className="mb-20 rounded-lg px-4 my-8 mx-auto overflow-x-hidden flex max-w-[1200px]  backdrop-blur-sm">
-      <div id="card-left" className="bg-opacity-30 p-16 rounded-xl" style={{backdropFilter: 'blur(2.3px)', backgroundColor: "rgba(100, 50, 50, 0.4)", WebkitBackdropFilter: "blur(2.3px)"}} >
+    <div className="mb-20 rounded-lg my-8 mx-auto overflow-x-hidden flex max-w-[1200px]  backdrop-blur-sm bg-[#ffffff30] border  border-[#f7f7f720] shadow-xl">
+      <div id="card-left" className="bg-opacity-30 p-16 rounded-xl" style={{backdropFilter: 'blur(2.3px)', backgroundColor: "rgba(100, 100, 100, 0.4)", WebkitBackdropFilter: "blur(2.3px)"}} >
         <div className="flex flex-col font-bold">
           <span className="text-4xl my-3 text-white">{data.location.name}</span>
           <span className="text-2xl my-3">{data.location.region}</span>
@@ -44,6 +46,7 @@ const Card = ({ data, location }) => {
           <div className="flex flex-col mt-5 text-xl font-medium">
             <span>{date}</span>
             <span>{time}</span>
+            <span>{curTime}</span>
           </div>
         </div>
       </div>

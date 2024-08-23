@@ -1,13 +1,18 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import moment from "moment-timezone";
+import { TimeContext } from "../../context/TimeContext";
 
 const Clock = ({ zone }) => {
   const [second, setSecond] = useState<number>(0);
   const [minute, setMinute] = useState<number>(0);
   const [hour, setHour] = useState<number>(0);
+  const { setCurTime } = useContext(TimeContext);
 
+  
   const setTime = () => {
+
     const nowDate = moment.tz(zone);
+    
     //console.log({ thereDate: nowDate });
     // console.log({ hour: nowDate.hour() });
     // console.log({ minute: nowDate.minute() });
@@ -16,6 +21,7 @@ const Clock = ({ zone }) => {
     setSecond(nowDate.second());
     setMinute(nowDate.minute());
     setHour(nowDate.hour());
+    setCurTime(hour+':'+minute+':'+second);
   };
   useEffect(() => {
     setTime();

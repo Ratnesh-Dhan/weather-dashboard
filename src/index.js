@@ -4,12 +4,16 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { SwitchProvider } from "./context/switchConetxt";
+import { TimeContextProvider } from "./context/TimeContext";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <SwitchProvider>
+    <TimeContextProvider>
+
       <App />
+    </TimeContextProvider>
     </SwitchProvider>
   </React.StrictMode>
 );

@@ -31,7 +31,7 @@ const Forecast = ({ location }) => {
 
   return (
     // w-[850px]
-    <div className="flex overflow-x-auto rounded-xl  w-[810px]">
+    <div className="scroller flex overflow-x-scroll rounded-xl w-[810px]">
       {ary.map((h, index) => (
         <ForecastCards hour={h} key={index} />
       ))}
