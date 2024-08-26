@@ -5,8 +5,8 @@ const ForecastCards = ({ hour }) => {
   const { digree } = useContext(SwitchContext);
   return (
     <div className="border-r p-5 m-5">
-      <p>{hour.time}</p>
-      {digree ? <p>{hour.temp_c} °C</p> : <p>{hour.temp_f} °F</p>}
+      <p className="text-white text-lg">{hour.time.split(" ")[1]}</p>
+      <p className="font-bold whitespace-nowrap">{digree ? `${hour.temp_c} °C` : `${hour.temp_f} °F`}</p>
     </div>
   );
 };
