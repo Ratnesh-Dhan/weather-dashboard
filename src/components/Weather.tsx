@@ -34,7 +34,7 @@ const Weather = () => {
       <div className="flex justify-center max-w-screen ">
         <input
           className="border border-slate-400 px-3 my-4 rounded-tl-lg py-3 rounded-bl-lg w-[40%]"
-          placeholder="enter zip code or city name"
+          placeholder="enter city name"
           type="text"
           value={location}
           onChange={(e) => setLocation(e.target.value)}
