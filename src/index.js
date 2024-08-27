@@ -11,7 +11,6 @@ root.render(
   <React.StrictMode>
     <SwitchProvider>
     <TimeContextProvider>
-
       <App />
     </TimeContextProvider>
     </SwitchProvider>

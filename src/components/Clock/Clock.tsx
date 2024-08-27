@@ -47,27 +47,27 @@ const Clock = ({ zone }) => {
           transform: `translate(100px, 100px)  rotate(${(index)*30+185}deg) translate(0, 70px)`,
         }}> 
           <div className="absolute text-white font-bold" style={{
-            transform:  `translate(0, 0) rotate(-${(index)*30+185}deg)`,
+            transform:  `translate(0, 0)  rotate(-${(index)*30+185}deg)`,
           }}>{number}</div>
           </div>
       ))}
    
       <div
-        className="absolute translate-x-[95px] translate-y-[30px] h-[70px] w-[6px] bg-[#290d4f]"
+        className="absolute translate-x-[95px] translate-y-[30px] h-[70px] w-[6px] bg-[#290d4f] rounded-[20px]"
         style={{
           transform: `translate(95px, 30px) rotate(${hour * 30}deg)`,
           transformOrigin: "bottom",
         }}
       ></div>
       <div
-        className="absolute translate-x-[95px] translate-y-[30px] h-[90px] w-[4px] bg-[#ce2175]"
+        className="absolute translate-x-[95px] translate-y-[30px] h-[90px] w-[4px] bg-[#ce2175] rounded-[20px]"
         style={{
           transform: `translate(95px, 10px) rotate(${minute * 6}deg)`,
           transformOrigin: "bottom",
         }}
       ></div>
       <div
-        className="bg-[#266aaa] absolute translate-x-[95px] translate-y-[100px] h-[90px] w-[3px]"
+        className="bg-[#266aaa] absolute translate-x-[95px] translate-y-[100px] h-[90px] w-[3px] rounded-[10px]"
         style={{
           transform: `translate(95px, 100px) rotate(${180 + second * 6}deg)`,
           transformOrigin: "top",
