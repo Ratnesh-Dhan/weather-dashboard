@@ -46,7 +46,7 @@ const Card = ({ data, location }) => {
           <div className="flex flex-col mt-5 text-xl font-medium">
             <span>{date}</span>
             <span>{time}</span>
-            <span>{curTime}</span>
+            {/* <span>{curTime} {time?.split(" ")[1]}</span> */}
           </div>
         </div>
       </div>
