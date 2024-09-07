@@ -7,9 +7,9 @@ const Weather = () => {
   const [location, setLocation] = useState<any>("");
   const [data, setData] = useState(null);
 
-  const handleClick = async () => {
+  const handleClick = async (pos = location) => {
     axiosConfig
-      .get(`current.json?key=${process.env.REACT_APP_API_KEY}&q=${location}&aqi=no`)
+      .get(`current.json?key=${process.env.REACT_APP_API_KEY}&q=${pos}&aqi=no`)
       .then((response) => {
         setData(response.data);
       })
@@ -26,6 +26,16 @@ const Weather = () => {
       console.log("enter");
     }
   }
+
+  useEffect(()=>{
+    if("geolocation" in navigator)
+      navigator.geolocation.getCurrentPosition((position)=> {
+      const  { coords: {latitude, longitude}} = position;
+      const curLocation = latitude +","+ longitude;
+      setLocation(curLocation);
+      handleClick(curLocation);
+    });
+  },[]);
 
   return (
     <>
