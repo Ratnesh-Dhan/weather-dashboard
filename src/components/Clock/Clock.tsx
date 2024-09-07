@@ -55,7 +55,7 @@ const Clock = ({ zone }) => {
       <div
         className="absolute translate-x-[95px] translate-y-[30px] h-[70px] w-[6px] bg-[#290d4f] rounded-[20px]"
         style={{
-          transform: `translate(95px, 30px) rotate(${hour * 30}deg)`,
+          transform: `translate(95px, 30px) rotate(${(hour * 30)+(30/360)*minute*6}deg)`,
           transformOrigin: "bottom",
         }}
       ></div>
