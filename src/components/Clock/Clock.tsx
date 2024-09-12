@@ -29,7 +29,7 @@ const Clock = ({ zone }) => {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      console.log("wating");
+      //console.log("wating");
       setTime();
     }, 1000);
     return () => clearInterval(interval);

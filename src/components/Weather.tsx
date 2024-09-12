@@ -2,16 +2,20 @@ import React, { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import Card from "./Card.tsx";
 import axiosConfig from "../axiosConfig.js";
+import Loading from "./Loading.tsx";
+import { RingLoader } from "react-spinners";
 
 const Weather = () => {
   const [location, setLocation] = useState<any>("");
   const [data, setData] = useState(null);
+  const [autoLocation, setAutoLocation] = useState<string>("");
 
   const handleClick = async (pos = location) => {
     axiosConfig
       .get(`current.json?key=${process.env.REACT_APP_API_KEY}&q=${pos}&aqi=no`)
       .then((response) => {
         setData(response.data);
+        setLocation(response.data.location.name);
       })
       .catch((error) => {
         if (error.response.status === 400) {
@@ -23,19 +27,30 @@ const Weather = () => {
   const handleKeyEnter = (event) => {
     if (event.key === "Enter") {
       handleClick();
-      console.log("enter");
+      //console.log("enter");
     }
   }
 
   useEffect(()=>{
+    console.log(navigator)
     if("geolocation" in navigator)
       navigator.geolocation.getCurrentPosition((position)=> {
       const  { coords: {latitude, longitude}} = position;
       const curLocation = latitude +","+ longitude;
-      setLocation(curLocation);
+      console.log({curLocation})
+      setAutoLocation(curLocation);
+      //setLocation(curLocation);
       handleClick(curLocation);
     });
   },[]);
+  
+  if(autoLocation=== "")
+    return(
+      <div  className="flex justify-center items-center h-screen bg-slate-200"> 
+        {/* <Loading /> */}
+        <RingLoader size={80} color="#6c58dd" />
+      </div>
+  );
 
   return (
     <>
