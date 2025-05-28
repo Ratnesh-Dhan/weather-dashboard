@@ -10,7 +10,7 @@ const Card = ({ data, location }) => {
   const [image, setImage] = useState<string>();
   const [date, setDate] = useState<string>();
   const [time, setTime] = useState<string>();
-  const {curTime}   = useContext(TimeContext);
+  const { curTime } = useContext(TimeContext);
 
   const { digree, setScale } = useContext(SwitchContext);
 
@@ -24,7 +24,7 @@ const Card = ({ data, location }) => {
     const both = data.location.localtime.split(" ");
     setDate(both[0]);
     let hour = Number(both[1].split(":")[0]);
-    console.log({hour});
+    console.log({ hour });
     if (hour > 12) {
       hour = hour - 12;
       ap = "pm";
@@ -33,8 +33,16 @@ const Card = ({ data, location }) => {
   };
 
   return (
-    <div className="mb-20 rounded-lg my-8 mx-auto overflow-x-hidden flex max-w-[1200px]  backdrop-blur-sm bg-[#ffffff30] border  border-[#f7f7f720] shadow-xl">
-      <div id="card-left" className="bg-opacity-30 p-16 rounded-xl" style={{backdropFilter: 'blur(2.3px)', backgroundColor: "rgba(100, 100, 100, 0.4)", WebkitBackdropFilter: "blur(2.3px)"}} >
+    <div className="mb-20 h-[55%] rounded-lg my-8 mx-auto overflow-x-hidden flex max-w-[1200px]  backdrop-blur-sm bg-[#ffffff30] border  border-[#f7f7f720] shadow-xl">
+      <div
+        id="card-left"
+        className="bg-opacity-30 p-16 rounded-xl"
+        style={{
+          backdropFilter: "blur(2.3px)",
+          backgroundColor: "rgba(100, 100, 100, 0.4)",
+          WebkitBackdropFilter: "blur(2.3px)",
+        }}
+      >
         <div className="flex flex-col font-bold">
           <span className="text-4xl my-3 text-white">{data.location.name}</span>
           <span className="text-2xl my-3">{data.location.region}</span>
@@ -59,12 +67,23 @@ const Card = ({ data, location }) => {
               ) : (
                 <span className="py-2 text-3xl">{data.current.temp_f} °F</span>
               )}
-              <motion.div className="mx-3 h-[30px] w-[30px] rounded-[50%] flex justify-center items-center cursor-pointer " whileHover={{rotate:45, transformOrigin: "center", boxShadow: "0 0 0 2px rgba(16,12,8)" }} whileTap={{
-    scale: 0.8,
-    rotate: 540,
-  }}>
-                
-              <HiOutlineSwitchHorizontal size={18} className="" onClick={() => setScale()} />
+              <motion.div
+                className="mx-3 h-[30px] w-[30px] rounded-[50%] flex justify-center items-center cursor-pointer "
+                whileHover={{
+                  rotate: 45,
+                  transformOrigin: "center",
+                  boxShadow: "0 0 0 2px rgba(16,12,8)",
+                }}
+                whileTap={{
+                  scale: 0.8,
+                  rotate: 540,
+                }}
+              >
+                <HiOutlineSwitchHorizontal
+                  size={18}
+                  className=""
+                  onClick={() => setScale()}
+                />
               </motion.div>
 
               <img src={image} alt="weather icon" width="50" height="50" />
@@ -81,7 +100,7 @@ const Card = ({ data, location }) => {
               {data.current.condition.text}
             </p>
           </div>
-          <Clock zone={data.location.tz_id}/>
+          <Clock zone={data.location.tz_id} />
         </div>
         <div className="">
           <Forecast location={location} />
