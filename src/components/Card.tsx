@@ -33,34 +33,38 @@ const Card = ({ data, location }) => {
   };
 
   return (
-    <div className="mb-20 h-[55%] rounded-lg my-8 mx-auto overflow-x-hidden flex max-w-[1200px]  backdrop-blur-sm bg-[#ffffff30] border  border-[#f7f7f720] shadow-xl">
+    <div className="mb-20 md:h-[55%] rounded-lg m-2 md:my-8 mx-auto overflow-x-hidden md:flex md:max-w-[1200px]  backdrop-blur-sm bg-[#ffffff30] border  border-[#f7f7f720] shadow-xl">
       <div
         id="card-left"
-        className="bg-opacity-30 p-16 rounded-xl"
+        className="bg-opacity-30 p-4 md:p-16 rounded-xl"
         style={{
           backdropFilter: "blur(2.3px)",
           backgroundColor: "rgba(100, 100, 100, 0.4)",
           WebkitBackdropFilter: "blur(2.3px)",
         }}
       >
-        <div className="flex flex-col font-bold">
-          <span className="text-4xl my-3 text-white">{data.location.name}</span>
-          <span className="text-2xl my-3">{data.location.region}</span>
-          <span className="text-xl">{data.location.country}</span>
+        <div className="flex flex-col font-bold ">
+          <span className="2text-xl md:text-4xl md:my-3 text-white">
+            {data.location.name}
+          </span>
+          <span className="text-xl md:text-2xl my-3">
+            {data.location.region}
+          </span>
+          <span className="text-lg md:text-xl">{data.location.country}</span>
           <div className="mt-10 font-medium">
-            <p className="text-xl">Lat: {data.location.lat}</p>
-            <p className="text-xl">Lon: {data.location.lon}</p>
+            <p className="text-sm md:text-xl">Lat: {data.location.lat}</p>
+            <p className="text-sm md:text-xl">Lon: {data.location.lon}</p>
           </div>
-          <div className="flex flex-col mt-5 text-xl font-medium">
+          <div className="flex flex-col mt-5 text-lg md:text-xl font-medium">
             <span>{date}</span>
             <span>{time}</span>
             {/* <span>{curTime} {time?.split(" ")[1]}</span> */}
           </div>
         </div>
       </div>
-      <div className=" flex-1 w-full">
-        <div className="flex">
-          <div className="flex flex-col m-4">
+      <div className=" flex-1 md:w-full">
+        <div className="flex md:flex-row flex-col relatvie">
+          <div className="flex flex-col m-4 absolute">
             <div className="flex text-xl">
               {digree ? (
                 <span className="py-2 text-3xl">{data.current.temp_c} °C</span>

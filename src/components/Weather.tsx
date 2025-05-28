@@ -64,7 +64,7 @@ const Weather = () => {
         {/* Inputs & Buttons */}
         <div className="flex justify-center max-w-screen ">
           <input
-            className="border border-slate-400 px-3 my-4 rounded-tl-lg py-3 rounded-bl-lg w-[30%]"
+            className="border border-slate-400 px-3 my-4 rounded-tl-lg py-3 rounded-bl-lg w-[50%] md:w-[30%]"
             placeholder="enter city name"
             type="text"
             value={location}
